@@ -1,0 +1,4 @@
+*.db
+secrets.js
+credenciales_correo.py
+/__pycache__/
