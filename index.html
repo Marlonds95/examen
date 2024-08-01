@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veterinaria PetCare</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #4CAF50;
+      padding: 20px;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #333;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    form {
+      width: 300px;
+      margin: 0 auto;
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #welcomeMessage {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Veterinaria PetCare</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="#">Servicios</a>
+    <a href="#">Contacto</a>
+    <a href="#" onclick="toggleLogin()">Login</a>
+  </nav>
+
+  <section>
+    <h2>Bienvenido a Veterinaria PetCare</h2>
+
+    <p>Ofrecemos atención de calidad para tus mascotas. ¡Cuida de su salud y bienestar!</p>
+
+    <div id="loginForm" style="display: none;">
+      <h3>Iniciar Sesión</h3>
+      <form onsubmit="return loginUser()">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+
+      <p id="welcomeMessage">¡Bienvenido! Has iniciado sesión con éxito.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Veterinaria PetCare. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="secrets.js"></script>
+  <script>
+    function toggleLogin() {
+      var loginForm = document.getElementById("loginForm");
+      loginForm.style.display = (loginForm.style.display === "none" || loginForm.style.display === "") ? "block" : "none";
+      document.getElementById("welcomeMessage").style.display = "none";
+    }
+
+   
+  </script>
+
+</body>
+</html>
