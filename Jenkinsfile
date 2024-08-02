@@ -14,8 +14,8 @@ node {
         }
 
         stage('Mover al servidor') {
-            // Limpia la carpeta en el servidor
-            bat 'rd /s /q C:\\servidor\\examen'
+            bat 'del /q C:\\servidor\\examen\\*'
+            bat 'for /d %i in (C:\\servidor\\examen\\*) do rd /s /q "%i"'
             
             // Copia los archivos del repositorio al servidor
             bat 'xcopy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\${env.JOB_NAME}\\* C:\\servidor\\examen /E /I /Y'
