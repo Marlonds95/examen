@@ -1,7 +1,7 @@
 node {
     // Define las variables de entorno
     def pythonPath = 'C:\\Users\\EQUIPO\\AppData\\Local\\Programs\\Python\\Python312\\python.exe'
-    def emailScriptPath = 'C:\\ProgramData\\Jenkins\\.jenkins\\Examen-uno\\envioCorreo.py'
+    def emailScriptPath = 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Examen-uno\\envioCorreo.py'
 
     try {
         stage('Revisión') {
