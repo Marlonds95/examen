@@ -1,7 +1,7 @@
 node {
     // Define las variables de entorno
     def pythonPath = 'C:\\Users\\EQUIPO\\AppData\\Local\\Programs\\Python\\Python312\\python.exe'
-    def emailScriptPath = 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Examen-uno\\envioCorreo.py'
+    def emailScriptPath = 'C:\\ProgramData\\Jenkins\\.jenkins\\scripts\\send_email.py'
 
     try {
         stage('Revisión') {
@@ -9,13 +9,14 @@ node {
             checkout([
                 $class: 'GitSCM',
                 branches: [[name: '*/master']],
-                userRemoteConfigs: [[url: 'https://github.com/Marlonds95/examen.git']]
+                userRemoteConfigs: [[url: 'https://github.com/Marlonds95/app-web2-ejer3-mat-activida.git']]
             ])
         }
 
         stage('Mover al servidor') {
+            // Limpia la carpeta en el servidor
             bat 'del /q C:\\servidor\\examen\\*'
-            bat 'for /d %i in (C:\\servidor\\examen\\*) do rd /s /q "%i"'
+            bat 'for /D %%p IN (C:\\servidor\\examen\\*) DO rd /s /q "%%p"'
             
             // Copia los archivos del repositorio al servidor
             bat 'xcopy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\${env.JOB_NAME}\\* C:\\servidor\\examen /E /I /Y'
